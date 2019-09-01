@@ -1,7 +1,9 @@
 package com.demo.project1;
 
+import java.util.ArrayList;
+
 public class StorePositionData {
-    private int x = 0, y = 0;
+    public ArrayList<Position> position = new ArrayList();
 
     private StorePositionData() {
     }
@@ -14,16 +16,20 @@ public class StorePositionData {
         private static final StorePositionData sInstance = new StorePositionData();
     }
 
-    public void setPostion(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+    public static class Position {
+        private int x = 0, y = 0;
 
-    public int getX() {
-        return x;
-    }
+        public Position(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
 
-    public int getY() {
-        return y;
+        public int getX() {
+            return x;
+        }
+
+        public int getY() {
+            return y;
+        }
     }
 }
