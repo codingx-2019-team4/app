@@ -4,34 +4,21 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.ActivityInfo;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-
-import java.util.Arrays;
 
 public class Main3Activity extends AppCompatActivity {
     public static String REGISTER = "REGISTER";
     public static String KEY = "POSITION";
     ConstraintLayout root;
-    TextView mTextview3;
-    int a = 0, b, c, d;
-
+    Broadcast broadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +26,11 @@ public class Main3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//螢幕保持橫向
         root = (ConstraintLayout) findViewById(R.id.root);
-        Broadcast br;
-        br = new Broadcast(this, root);
+
+        broadcast = new Broadcast(this, root);
         IntentFilter filter = new IntentFilter();
         filter.addAction(Main3Activity.REGISTER);
-        this.registerReceiver(br, filter);
+        this.registerReceiver(broadcast, filter);
 
 
 //        final Handler handler = new Handler();
@@ -78,7 +65,7 @@ public class Main3Activity extends AppCompatActivity {
 //        a += 10;
 //    }
 
-    public static class Broadcast extends BroadcastReceiver {
+    public class Broadcast extends BroadcastReceiver {
         Context context;
         ConstraintLayout root;
 
@@ -115,11 +102,11 @@ public class Main3Activity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 root.removeViews(1, root.getChildCount() - 1);
-                add();
+                addNewPosition();
             }
         }
 
-        public void add() {
+        public void addNewPosition() {
             for (int i = 0; i < StorePositionData.getInstance().position.size(); i++) {
                 ImageView pointImage = new ImageView(context);
                 ConstraintLayout.LayoutParams layoutParams2 = new ConstraintLayout.LayoutParams(
@@ -135,5 +122,12 @@ public class Main3Activity extends AppCompatActivity {
                 root.addView(pointImage);
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broadcast);
+
     }
 }
