@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E91E63"
+    android:background="@drawable/cloudnight"
     tools:context=".Main2Activity">
 
     <Button
@@ -16,8 +16,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:onClick="fire"
-        android:text="顯示地圖"
-        android:textSize="40dp"
+        android:text="@string/message2"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +31,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="危險中"
+        android:text="@string/message"
         android:textColor="#F03C3F41"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,4 +41,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.388" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
