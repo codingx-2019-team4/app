@@ -27,14 +27,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Main3Activity.Broadcast br;
-        br = new Main3Activity.Broadcast();
-
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Main3Activity.REGISTER);
-        this.registerReceiver(br, filter);
-
-
         Intent intent = new Intent(this, MyService.class);
         startService(intent);
     }

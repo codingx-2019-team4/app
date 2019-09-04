@@ -29,7 +29,7 @@ public class ClientThread extends Thread {
         super.run();
         try {
 //            InetAddress serverIp = InetAddress.getByName("140.116.6.51");//"140.116.6.51"serverIp
-            clientSocket = new Socket("192.168.50.224", 8080);
+            clientSocket = new Socket("192.168.0.4", 8088);
             Log.v("test","yes1");
 
 

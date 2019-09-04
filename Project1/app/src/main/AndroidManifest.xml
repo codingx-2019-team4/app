@@ -10,10 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver
-            android:name="com.demo.project1.Main3Activity$Broadcast"
-            android:enabled="true"
-            android:exported="true"></receiver>
+<!--        <receiver-->
+<!--            android:name="com.demo.project1.Main3Activity$Broadcast"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true"></receiver>-->
 
         <service
             android:name=".MyService"
