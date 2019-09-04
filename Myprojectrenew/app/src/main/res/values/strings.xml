@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">Project 1</string>
+    <string name="message">危險中</string>
+    <string name="message2">顯示地圖</string>
+    <string name="safe">安全</string>
+    <string name="point">.</string>
+</resources>
