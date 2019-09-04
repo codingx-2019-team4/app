@@ -20,13 +20,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 //import org.bytedeco.opencv.global.opencv_imgcodecs;
 //import org.bytedeco.opencv.global.opencv_imgproc;
 
-import  org.bytedeco.javacpp.opencv_core.Mat;
-import  org.bytedeco.javacpp.opencv_core.Point;
-import  org.bytedeco.javacpp.opencv_core.Scalar;
-import  org.bytedeco.javacpp.opencv_imgproc;
-import  org.bytedeco.javacpp.opencv_imgcodecs;
-
-
+import org.bytedeco.javacpp.opencv_core.Mat;
+import org.bytedeco.javacpp.opencv_core.Point;
+import org.bytedeco.javacpp.opencv_core.Scalar;
+import org.bytedeco.javacpp.opencv_imgproc;
+import org.bytedeco.javacpp.opencv_imgcodecs;
 
 
 import org.bytedeco.javacv.AndroidFrameConverter;
@@ -74,19 +72,17 @@ public class Main3Activity extends AppCompatActivity {
         mapE = new Mat();
 
         converterToBitmap = new AndroidFrameConverter();
-        converterToMat =  new OpenCVFrameConverter.ToMat();
-
+        converterToMat = new OpenCVFrameConverter.ToMat();
 
 
         assetManager = getAssets();
         file = getFilesDir();
 
 
-        imageP = new ImageProcessing(assetManager,file);
+        imageP = new ImageProcessing(assetManager, file);
 
 
-
-        pointImage = (ImageView)findViewById(R.id.photo_view);
+        pointImage = (ImageView) findViewById(R.id.photo_view);
 
         map = imageP.imagev2Mat(pointImage);
 
@@ -115,7 +111,7 @@ public class Main3Activity extends AppCompatActivity {
 
             if (action.equals(Main3Activity.REGISTER)) {
                 String position = intent.getStringExtra(KEY);
-                if(position == null) {
+                if (position == null) {
                     return;
                 }
                 StorePositionData.getInstance().position.clear();
@@ -139,34 +135,22 @@ public class Main3Activity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                root.removeViews(1, root.getChildCount() - 1);
+//                root.removeViews(1, root.getChildCount() - 1);
                 addNewPosition();
             }
         }
 
         public void addNewPosition() {
             for (int i = 0; i < StorePositionData.getInstance().position.size(); i++) {
-
-
-//                pt = new Point(StorePositionData.getInstance().position.get(i).getX(),
-//                                        StorePositionData.getInstance().position.get(i).getY());
-
-                //Point pt=new Point(100,200);
-                Point pt=new Point();
+                Point pt = new Point();
                 pt.x(StorePositionData.getInstance().position.get(i).getX());
                 pt.y(StorePositionData.getInstance().position.get(i).getY());
-                //opencv_imgproc.circle(map,pt,3,new Scalar(0,0,255,0));
-                Log.v("pointpoint", pt.x()+" "+pt.y());
                 opencv_imgproc imgR = new opencv_imgproc();
-                Log.v("pointpoint", imgR+"");
-                //imgR.circle(map,pt,3,new Scalar(255,255,0,1),2,2,1);
-                if (i==0){
-                    imgR.circle(mapE,pt,2,new Scalar(255,0,0,200));
-                }else{
-                    imgR.circle(mapE,pt,2,new Scalar(0,0,255,200));
+                if (i == 0) {
+                    imgR.circle(mapE, pt, 3, new Scalar(255, 0, 0, 255),opencv_imgproc.CV_FILLED, 8,0);
+                } else {
+                    imgR.circle(mapE, pt, 3, new Scalar(0, 0, 255, 255),opencv_imgproc.CV_FILLED, 8,0);
                 }
-
-
             }
 
             Frame frame_after = converterToMat.convert(mapE);
