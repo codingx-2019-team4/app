@@ -1,23 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     tools:context=".MainActivity">
-    <ImageView
-        android:layout_width="1000dp"
-        android:layout_height="1000dp"
-        android:background="@drawable/fire_and1_water"
-        android:alpha="100"
-        android:translationX="-10dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="-5dp"
+        android:paddingRight="-5dp"
+        android:alpha="0.9">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/back"
+            />
+
+<!--        Reference: https://techaxioms.com/add-animated-gif-android-application/-->
+
+    </FrameLayout>
+
+
+<!--        android:background="@drawable/bg_anim"-->
+        />
+<!--    <FrameLayout-->
+<!--        android:id="@+id/backg"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+
+<!--        android:alpha="100"-->
+<!--        />-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
+
+
         >
 
     <TextView
@@ -26,19 +49,23 @@
         android:layout_height="wrap_content"
         android:background="#0C4CAF50"
         android:text="@string/safe"
-        android:textColor="#F092D3A6"
-        android:textSize="100sp" />
+        android:textColor="#F0B7F0CB"
+        android:textSize="100sp"
+        android:textStyle="bold"
+        android:layout_gravity="top|left"/>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+
         android:text="@string/message2"
         android:textColor="#000000"
         android:textSize="40sp"
+        android:layout_gravity="bottom|center_horizontal"
+
+
+
          />
     </LinearLayout>
 

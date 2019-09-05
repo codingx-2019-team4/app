@@ -8,6 +8,7 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +57,9 @@ public class Main3Activity extends AppCompatActivity {
 
     public ImageView pointImage;
 
+//    FrameLayout frameLayout;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +67,7 @@ public class Main3Activity extends AppCompatActivity {
         root = (ConstraintLayout) findViewById(R.id.root);
 
         broadcast = new Broadcast(this, root);
+
         IntentFilter filter = new IntentFilter();
         filter.addAction(Main3Activity.REGISTER);
         this.registerReceiver(broadcast, filter);
@@ -73,6 +78,9 @@ public class Main3Activity extends AppCompatActivity {
 
         converterToBitmap = new AndroidFrameConverter();
         converterToMat = new OpenCVFrameConverter.ToMat();
+//
+//        frameLayout = (FrameLayout) findViewById(R.id.backg);
+//        frameLayout.addView(new MyGifView(this));
 
 
         assetManager = getAssets();
